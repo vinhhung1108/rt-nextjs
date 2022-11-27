@@ -16,7 +16,6 @@ export default function handler(
       proxyReq.path = proxyReq.path.replace('/api',''); //rewrite to match with api server
     });
 
-
     proxy.web(req, res, {
       target: 'http://localhost:4000',
       changeOrigin: true,

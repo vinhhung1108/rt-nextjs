@@ -10,7 +10,7 @@ proxy.on('proxyReq', function(proxyReq, req, res, options) {
     // proxyReq.path = rewritedPath;
     proxyReq.path = proxyReq.path.replace('/api','auth'); // rewrite to match with api server   
   });
-
+  
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
