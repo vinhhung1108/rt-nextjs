@@ -1,6 +1,11 @@
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
 
-export default function Index({ post }) {
+export interface Post {
+    _id: string;
+    title: string;
+    content: string;
+}
+export default function Index({ post } : {post: Post}) {
     // const route = useRouter();
     // const {pid, page} = route.query;
     return (
@@ -27,7 +32,7 @@ export async function getStaticPaths() {
     return { paths, fallback: false };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params } : { params: any}) {
     const res = await fetch(`http://localhost:4000/post/${params.pid}`);
     const post = await res.json();
 

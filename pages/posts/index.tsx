@@ -1,4 +1,9 @@
-export default function Blog({posts}) {
+export interface Post {
+    _id: string;
+    title: string;
+    content: string;
+}
+export default function Blog({posts} : {posts: Post[]}) {
     return (
         <ul>
             { posts.map((post: any, index: number)=> (

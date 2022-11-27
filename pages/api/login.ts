@@ -6,8 +6,9 @@ import { resolve } from 'path'
 const proxy = httpProxy.createProxyServer()
 
 proxy.on('proxyReq', function(proxyReq, req, res, options) {
-    const rewritedPath = req.url.replace('/api','/auth'); // can make any rule  
-    proxyReq.path = rewritedPath;   
+    // const rewritedPath = req.url.replace('/api','/auth'); // can make any rule  
+    // proxyReq.path = rewritedPath;
+    proxyReq.path = proxyReq.path.replace('/api','auth'); // rewrite to match with api server   
   });
 
 export default function handler(
